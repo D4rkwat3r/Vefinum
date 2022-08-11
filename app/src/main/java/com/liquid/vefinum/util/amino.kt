@@ -48,35 +48,37 @@ fun requestSignature(data: ByteArray): String {
     return Base64.encodeToString(ndcPrefix + mac.doFinal(), Base64.NO_WRAP)
 }
 
-suspend fun doRequest(requestMethod: String, web: Boolean, endpoint: String, contentType: String?, body: ByteArray?, params: UrlParams? = null): HttpResponse {
-    val response = client.request {
-        method = HttpMethod.parse(requestMethod)
-        url {
-            protocol = URLProtocol.HTTP
-            host = if (web) "aminoapps.com" else "service.narvii.com"
-            path(if (web) "api/$endpoint" else "api/v1/$endpoint")
-            params?.forEach { parameters.append(it.key, it.value) }
-        }
-        headers {
-            append("Accept-Language", "ru-RU")
-            if (web) {
-                append("X-Requested-With", "XMLHttpRequest")
-            } else {
-                append("NDCDEVICEID", randomDevice())
-                append("NDCLANG", "ru")
-            }
-            if (sid != null) {
-                append(if (web) "cookie" else "NDCAUTH", "sid=$sid")
-            }
-            append("User-Agent", if (web) webUserAgent else mobileUserAgent)
-            if (body != null) {
-                if (!web) append("NDC-MSG-SIG", requestSignature(body))
-                setBody(body)
-            }
-        }
-        if (contentType != null) contentType(ContentType.parse(contentType))
+suspend fun doRequest(requestMethod: String,
+                      web: Boolean,
+                      endpoint: String,
+                      contentType: String?,
+                      body: ByteArray?,
+                      params: UrlParams? = null) = client.request {
+    method = HttpMethod.parse(requestMethod)
+    url {
+        protocol = URLProtocol.HTTP
+        host = if (web) "aminoapps.com" else "service.narvii.com"
+        path(if (web) "api/$endpoint" else "api/v1/$endpoint")
+        params?.forEach { parameters.append(it.key, it.value) }
     }
-    return response
+    headers {
+        append("Accept-Language", "ru-RU")
+        if (web) {
+            append("X-Requested-With", "XMLHttpRequest")
+        } else {
+            append("NDCDEVICEID", randomDevice())
+            append("NDCLANG", "ru")
+        }
+        if (sid != null) {
+            append(if (web) "cookie" else "NDCAUTH", "sid=$sid")
+        }
+        append("User-Agent", if (web) webUserAgent else mobileUserAgent)
+        if (body != null) {
+            if (!web) append("NDC-MSG-SIG", requestSignature(body))
+            setBody(body)
+        }
+        }
+    if (contentType != null) contentType(ContentType.parse(contentType))
 }
 
 suspend fun doGet(endpoint: String, web: Boolean, params: UrlParams? = null) = doRequest(
