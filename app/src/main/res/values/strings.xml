@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Vefinum</string>
+    <string name="mail">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="login_failed">Не удалось войти в аккаунт</string>
+    <string name="ok">OK</string>
+    <string name="communities">Сообщества</string>
+    <string name="launch">Запуск</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="run_fragment">Run fragment</string>
+    <string name="communities_fragment">Communities fragment</string>
+    <string name="incorrect_response">Неверный ответ от сервера (%1$s)</string>
+    <string name="selected">Выбрано сообщество \"%1$s\"</string>
+    <string name="connection_failed">Процесс отправки запроса был прерван. Возможно, не работают сервера Amino или у вас проблемы с интернетом</string>
+    <string name="hello">Привет, %1$s</string>
+    <string name="cover">Обложка</string>
+    <string name="icon">Иконка</string>
+    <string name="fetch_communities_error">Возникла ошибка при получении списка сообществ</string>
+    <string name="state">Состояние</string>
+    <string name="community_not_selected">Сообщество не выбрано</string>
+    <string name="selected_community">Выбранное сообщество: %1$s</string>
+    <string name="incorrect_count">Количество статей не может быть больше 500 или меньше 0</string>
+    <string name="incorrect_image">Выберите другую картинку</string>
+    <string name="title">Заголовок статей</string>
+    <string name="content">Содержимое статей</string>
+    <string name="image_link">Ссылка на картинку-обложку</string>
+    <string name="count">Количество статей</string>
+    <string name="start">Запустить</string>
+    <string name="counter_start_value">0/?</string>
+</resources>

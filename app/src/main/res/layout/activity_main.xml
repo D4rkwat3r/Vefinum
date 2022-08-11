@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="@string/mail"
+            android:layout_marginTop="35dp"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="@string/password"
+            android:layout_marginTop="35dp"
+            android:autofillHints="password"
+            android:inputType="textPassword" />
+        <include
+            android:id="@+id/btn"
+            layout="@layout/progress_button"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="50dp"
+            app:bindBackground="@{@drawable/button_st}"
+            app:bindText="@{@string/login}"
+            app:bindTextColor="@{@color/white}"
+            app:bindTextSize="@{45}" />
+    </LinearLayout>
+</layout>
