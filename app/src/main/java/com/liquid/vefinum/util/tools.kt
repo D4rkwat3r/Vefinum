@@ -15,7 +15,7 @@ import io.ktor.http.*
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import jp.wasabeef.picasso.transformations.gpu.BrightnessFilterTransformation
 
-val token = "5406530999:AAGGcnWMwrDaWYESbaQj4VcfC5qItFPL_l4"
+val token = "токен бота удалён"
 
 fun ProgressButtonBinding.animateLoading() {
     root.post {
